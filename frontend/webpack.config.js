@@ -15,11 +15,12 @@ module.exports = {
   module: {
     rules: [
       {
-        // 拡張子 .ts もしくは .tsx の場合
-        test: /\.tsx?$/,
-        // TypeScript をコンパイルする
-        use: "ts-loader",       
-         // 対象となるファイルの拡張子(cssのみ)
+        test: /\.(ts|tsx)$/,
+        use: ["ts-loader"],
+        exclude: /node_modules/,
+      },
+      {
+        // 対象となるファイルの拡張子(cssのみ)
         test: /\.css$/,
         // Sassファイルの読み込みとコンパイル
         use: [
@@ -28,7 +29,7 @@ module.exports = {
           // CSSをバンドルするための機能
           "css-loader"
         ],
-      }
+      },
     ]
   },
   // import 文で .ts や .tsx ファイルを解決するため
