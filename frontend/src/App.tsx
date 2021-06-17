@@ -1,4 +1,5 @@
 import Header from "./comonents/Header";
+//import "bootstrap/dist/css/bootstrap.min.css";
 
 var App: React.FC = () => {
     return (

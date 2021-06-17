@@ -18,7 +18,16 @@ module.exports = {
         // 拡張子 .ts もしくは .tsx の場合
         test: /\.tsx?$/,
         // TypeScript をコンパイルする
-        use: "ts-loader"
+        use: "ts-loader",       
+         // 対象となるファイルの拡張子(cssのみ)
+        test: /\.css$/,
+        // Sassファイルの読み込みとコンパイル
+        use: [
+          // スタイルシートをJSからlinkタグに展開する機能
+          "style-loader",
+          // CSSをバンドルするための機能
+          "css-loader"
+        ],
       }
     ]
   },
@@ -29,8 +38,6 @@ module.exports = {
   // ES5(IE11等)向けの指定（webpack 5以上で必要）
   target: ["web", "es5"],
   devServer: {
-    host: "0.0.0.0",
-    port: 3000,
     contentBase: `${__dirname}/dist`
   }
 }

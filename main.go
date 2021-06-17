@@ -23,8 +23,9 @@ func main() {
 		}
 
 		/* localhost:8000/api/suggestionにアクセスした場合のルーティング */
-		var testSuggestionApiEngine = engine.Group("/suggestion")
+		var testSuggestionApiEngine = apiEngine.Group("/suggestion")
 		{
+			testSuggestionApiEngine.GET("/", controller.FindTestSuggestions)
 			testSuggestionApiEngine.POST("/", controller.CreateTestSuggestion)
 		}
 

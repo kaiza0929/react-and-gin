@@ -18,7 +18,7 @@ func (initService InitService) Init() {
 
 	/* マイグレート(テーブルがなければ自動作成) */
 	/* 複数のモデルを引数に取れるか? */
-	db.AutoMigrate(&model.TestLog{})
+	db.AutoMigrate(&model.TestLog{}, &model.TestSuggestion{})
 	defer db.Close()
 
 }

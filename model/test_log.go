@@ -12,5 +12,6 @@ type TestLog struct {
 	Testid  string `gorm:"primaryKey"`
 	Content string
 	Result  string
+	Tag     string
 	Date    time.Time
 }
